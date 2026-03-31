@@ -974,45 +974,5 @@ window.addEventListener('scroll',()=>{
   });
 });
 </script>
-
-
-<!-- EMAILJS CDN (ONLY ONCE) -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-<script>
-/* ───────── EMAILJS INIT ───────── */
-(function(){
-  emailjs.init("_pNX4jIB13Rq90Uq2");
-})();
-
-/* ───────── FORM SUBMIT ───────── */
-function handleSubmit(btn){
-  const name = document.querySelector('input[type="text"]').value;
-  const email = document.querySelector('input[type="email"]').value;
-  const message = document.querySelector('textarea').value;
-
-  emailjs.send("service_pxmbrof","template_chtineu",{
-    from_name: name,
-    email: email,
-    message: message
-  }).then(()=>{
-    btn.textContent = "✓ MESSAGE SENT!";
-    btn.style.background = "linear-gradient(135deg,#00e5ff,#00ff88)";
-  }).catch(()=>{
-    btn.textContent = "❌ FAILED";
-  });
-}
-
-/* ───────── SMOOTH SCROLL OFFSET ───────── */
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const id = a.getAttribute('href');
-    if(id==='#') return;
-    e.preventDefault();
-    const el = document.querySelector(id);
-    if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
-  });
-});
-</script>
 </body>
 </html>
